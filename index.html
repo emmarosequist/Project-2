@@ -19,6 +19,12 @@
     src="assets/filefolder.png"
     alt="Closed manila folder"
   >
+  <img
+    class="folder-art folder-art-open"
+    id="openFolderArt"
+    src="assets/openfilefolder.png"
+    alt="Open manila folder"
+  >
 </button>
     </header>
 
@@ -26,27 +32,27 @@
       <button class="timeline-arrow timeline-arrow-left" id="scrollLeft" type="button" aria-label="Scroll photos left">‹</button>
       <div class="photo-track" id="photoTrack" tabindex="0" aria-label="Scroll horizontally through archival photos">
         <button class="photo-card" type="button" data-year="1966" aria-pressed="false">
-          <img src="assets/photo-1966.jpg" alt="Archival portrait from 1966">
+          <img src="assets/1966Paul.jpg" alt="Archival portrait from 1966">
           <span class="photo-year">1966</span>
         </button>
         <button class="photo-card" type="button" data-year="1967" aria-pressed="false">
-          <img src="assets/photo-1967.jpg" alt="Archival portrait from 1967">
+          <img src="assets/Sgt_Peppers_(cropped).jpg" alt="Archival portrait from 1967">
           <span class="photo-year">1967</span>
         </button>
         <button class="photo-card" type="button" data-year="1968" aria-pressed="false">
-          <img src="assets/photo-1968.jpg" alt="Archival portrait from 1968">
+          <img src="assets/paul1968.jpg" alt="Archival portrait from 1968">
           <span class="photo-year">1968</span>
         </button>
         <button class="photo-card" type="button" data-year="1969" aria-pressed="false">
-          <img src="assets/photo-1969.jpg" alt="Archival photograph from 1969">
+          <img src="assets/paul1969.jpg" alt="Archival photograph from 1969">
           <span class="photo-year">1969</span>
         </button>
         <button class="photo-card" type="button" data-year="1970" aria-pressed="false">
-          <img src="assets/photo-1970.jpg" alt="Archival portrait from 1970">
+          <img src="assets/paul1970.jpeg" alt="Archival portrait from 1970">
           <span class="photo-year">1970</span>
         </button>
         <button class="photo-card" type="button" data-year="2026" aria-pressed="false">
-          <img src="assets/photo-2026.jpg" alt="Modern case-file photograph">
+          <img src="assets/26-paul-mccartney_01.jpg" alt="Modern case-file photograph">
           <span class="photo-year">2026</span>
         </button>
       </div>
@@ -115,28 +121,7 @@
     <span class="viewer-year" id="viewerYear"></span>
   </div>
   
-const folderButton = document.getElementById("folderButton");
-const folderArt = document.getElementById("folderArt");
 
-let isOpen = false;
-
-folderButton.addEventListener("click", function () {
-  isOpen = !isOpen;
-
-  if (isOpen) {
-    folderArt.src = "assets/openfilefolder.png";
-    folderArt.alt = "Open manila folder containing The Paperback Writer case file";
-
-    folderButton.setAttribute("aria-expanded", "true");
-    folderButton.setAttribute("aria-label", "Close case file");
-  } else {
-    folderArt.src = "assets/filefolder.png";
-    folderArt.alt = "Closed manila folder labeled The Paperback Writer";
-
-    folderButton.setAttribute("aria-expanded", "false");
-    folderButton.setAttribute("aria-label", "Open case file");
-  }
-});
 
 </body>
 </html>
