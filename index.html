@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Paperback Writer — a case-file archive exploring the Paul Is Dead story.">
+  <title>The Paperback Writer | Case File</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="site-shell">
+    <header class="hero" aria-label="The Paperback Writer case file">
+      
+<button class="folder-button" id="folderButton" type="button" aria-expanded="false">
+  <img
+    class="folder-art"
+    id="folderArt"
+    src="assets/filefolder.png"
+    alt="Closed manila folder"
+  >
+</button>
+    </header>
+
+    <section class="photo-timeline" aria-label="Photo timeline">
+      <button class="timeline-arrow timeline-arrow-left" id="scrollLeft" type="button" aria-label="Scroll photos left">‹</button>
+      <div class="photo-track" id="photoTrack" tabindex="0" aria-label="Scroll horizontally through archival photos">
+        <button class="photo-card" type="button" data-year="1966" aria-pressed="false">
+          <img src="assets/photo-1966.jpg" alt="Archival portrait from 1966">
+          <span class="photo-year">1966</span>
+        </button>
+        <button class="photo-card" type="button" data-year="1967" aria-pressed="false">
+          <img src="assets/photo-1967.jpg" alt="Archival portrait from 1967">
+          <span class="photo-year">1967</span>
+        </button>
+        <button class="photo-card" type="button" data-year="1968" aria-pressed="false">
+          <img src="assets/photo-1968.jpg" alt="Archival portrait from 1968">
+          <span class="photo-year">1968</span>
+        </button>
+        <button class="photo-card" type="button" data-year="1969" aria-pressed="false">
+          <img src="assets/photo-1969.jpg" alt="Archival photograph from 1969">
+          <span class="photo-year">1969</span>
+        </button>
+        <button class="photo-card" type="button" data-year="1970" aria-pressed="false">
+          <img src="assets/photo-1970.jpg" alt="Archival portrait from 1970">
+          <span class="photo-year">1970</span>
+        </button>
+        <button class="photo-card" type="button" data-year="2026" aria-pressed="false">
+          <img src="assets/photo-2026.jpg" alt="Modern case-file photograph">
+          <span class="photo-year">2026</span>
+        </button>
+      </div>
+      <button class="timeline-arrow timeline-arrow-right" id="scrollRight" type="button" aria-label="Scroll photos right">›</button>
+    </section>
+
+    <nav class="year-navigation" aria-label="Jump to a year">
+      <a href="#year-1966">1966</a>
+      <a href="#year-1967">1967</a>
+      <a href="#year-1968">1968</a>
+      <a href="#year-1969">1969</a>
+      <a href="#year-2026">2026</a>
+    </nav>
+
+    <section class="biography" aria-label="Case-file timeline">
+      <article class="year-entry year-entry-left" id="year-1966">
+        <h2>1966</h2>
+        <div class="entry-copy">
+          <p>Rumors begin to circulate around Paul McCartney. Fans examine photographs, lyrics, and public appearances for clues, building a story from details that might otherwise go unnoticed.</p>
+          <p>In this case file, the year marks the beginning of a trail of supposed evidence. Select a photograph above to connect a visual clue to its place in the timeline.</p>
+        </div>
+      </article>
+
+      <article class="year-entry year-entry-right" id="year-1967">
+        <h2>1967</h2>
+        <div class="entry-copy">
+          <p>As the band's image evolves, listeners begin reading deeper meanings into album artwork, lyrics, and photographs. Ordinary design choices become potential clues when viewed through the rumor.</p>
+          <p>The story grows through interpretation, repetition, and the desire to connect separate pieces of information into one explanation.</p>
+        </div>
+      </article>
+
+      <article class="year-entry year-entry-left" id="year-1968">
+        <h2>1968</h2>
+        <div class="entry-copy">
+          <p>New recordings and photographs give fans more material to investigate. Backward messages, symbolic imagery, and visual coincidences become part of the growing mythology.</p>
+          <p>Each new clue adds another layer to a story that sits between popular culture, mystery, and collective imagination.</p>
+        </div>
+      </article>
+
+      <article class="year-entry year-entry-right" id="year-1969">
+        <h2>1969</h2>
+        <div class="entry-copy">
+          <p>The rumor reaches a wider audience as fans compare album covers, public appearances, and song lyrics. The Abbey Road cover becomes one of the most discussed images in the theory.</p>
+          <p>What began as scattered speculation turns into a recognizable cultural legend, sustained by close looking and shared interpretation.</p>
+        </div>
+      </article>
+
+      <article class="year-entry year-entry-left" id="year-2026">
+        <h2>2026</h2>
+        <div class="entry-copy">
+          <p>Decades later, the “Paul Is Dead” story remains an example of how images and design can shape belief. This archive revisits the visual clues and asks how a narrative becomes convincing.</p>
+          <p>Explore the file, follow the dates, and decide what the evidence reveals about the relationship between popular culture and conspiracy.</p>
+        </div>
+      </article>
+    </section>
+
+    <footer class="site-footer">
+      <span>THE PAPERBACK WRITER</span>
+      <span>CASE FILE / 1966–2026</span>
+    </footer>
+  </main>
+
+  <div class="image-viewer" id="imageViewer" aria-hidden="true">
+    <button class="viewer-close" id="viewerClose" type="button" aria-label="Close enlarged photo">×</button>
+    <img id="viewerImage" src="" alt="">
+    <span class="viewer-year" id="viewerYear"></span>
+  </div>
+  
+const folderButton = document.getElementById("folderButton");
+const folderArt = document.getElementById("folderArt");
+
+let isOpen = false;
+
+folderButton.addEventListener("click", function () {
+  isOpen = !isOpen;
+
+  if (isOpen) {
+    folderArt.src = "assets/openfilefolder.png";
+    folderArt.alt = "Open manila folder containing The Paperback Writer case file";
+
+    folderButton.setAttribute("aria-expanded", "true");
+    folderButton.setAttribute("aria-label", "Close case file");
+  } else {
+    folderArt.src = "assets/filefolder.png";
+    folderArt.alt = "Closed manila folder labeled The Paperback Writer";
+
+    folderButton.setAttribute("aria-expanded", "false");
+    folderButton.setAttribute("aria-label", "Open case file");
+  }
+});
+
+</body>
+</html>
